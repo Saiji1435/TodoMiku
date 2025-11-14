@@ -36,7 +36,6 @@ function App() {
   const [showEvents, setShowEvents] = useState(true);
   const [wallpaper, setWallpaper] = useState("/TodoMiku.jpg");
 
-  // Load from localStorage
   useEffect(() => {
     const savedTasks = localStorage.getItem("tasks");
     const savedBorrowed = localStorage.getItem("borrowed");
@@ -49,7 +48,6 @@ function App() {
     if (savedWallpaper) setWallpaper(savedWallpaper);
   }, []);
 
-  // Save to localStorage
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
@@ -81,7 +79,7 @@ function App() {
       </header>
 
       <main className="app-container three-column">
-        {/* Left Panel: Input Forms */}
+        {/* Left Panel */}
         <div className="box left-box">
           <h2>📝 Add Task</h2>
           <TaskForm setTasks={setTasks} />
@@ -93,11 +91,10 @@ function App() {
           <EventForm setEvents={setEvents} />
         </div>
 
-        {/* Middle Panel: Created Items */}
+        {/* Middle Panel */}
         <div className="box middle-box">
           <h2>📁 Created Items</h2>
 
-          {/* ✅ Tasks Created */}
           <div className="folder-section">
             <h3>
               ✅ Tasks Created
@@ -124,7 +121,6 @@ function App() {
             )}
           </div>
 
-          {/* ✅ Borrowed Items */}
           <div className="folder-section">
             <h3>
               📦 Borrowed Items
@@ -151,7 +147,6 @@ function App() {
             )}
           </div>
 
-          {/* ✅ Event List */}
           <div className="folder-section">
             <h3>
               🎉 Event List
@@ -179,38 +174,31 @@ function App() {
           </div>
         </div>
 
-        {/* Right Panel: Settings */}
+        {/* Right Panel */}
         <div className="box right-box">
           <h2>⚙️ Settings</h2>
           <p>Wallpaper Options:</p>
           <div className="wallpaper-options">
-            <div className="wallpaper-choice">
-              <img src="/MikuH1.jpg" alt="MikuH#1" className="wallpaper-thumb" />
-              <button
-                className={wallpaper === "/MikuH1.jpg" ? "active-wallpaper" : ""}
-                onClick={() => changeWallpaper("/MikuH1.jpg")}
-              >
-                MikuH#1
-              </button>
-            </div>
-            <div className="wallpaper-choice">
-              <img src="/MikuH2.jpg" alt="MikuH#2" className="wallpaper-thumb" />
-              <button
-                className={wallpaper === "/MikuH2.jpg" ? "active-wallpaper" : ""}
-                onClick={() => changeWallpaper("/MikuH2.jpg")}
-              >
-                MikuH#2
-              </button>
-            </div>
-            <div className="wallpaper-choice">
-              <img src="/TodoMiku.jpg" alt="Default" className="wallpaper-thumb" />
-              <button
-                className={wallpaper === "/TodoMiku.jpg" ? "active-wallpaper" : ""}
-                onClick={() => changeWallpaper("/TodoMiku.jpg")}
-              >
-                Default
-              </button>
-            </div>
+            {["MikuH1.jpg", "MikuH2.jpg", "MikuH3.jpg", "TodoMiku.jpg"].map((file, i) => (
+              <div className="wallpaper-choice" key={file}>
+                <img src={`/${file}`} alt={`Miku#${i + 1}`} className="wallpaper-thumb" />
+                <button
+                  className={wallpaper === `/${file}` ? "active-wallpaper" : ""}
+                  onClick={() => changeWallpaper(`/${file}`)}
+                >
+                  {file === "TodoMiku.jpg" ? "Default" : `Miku#${i + 1}`}
+                </button>
+              </div>
+            ))}
+          </div>
+
+          {/* 🎵 Music Player */}
+          <div className="music-player">
+            <p>🎵 Music</p>
+            <audio controls loop>
+              <source src="/MikuTheme.mp3" type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
           </div>
         </div>
       </main>
