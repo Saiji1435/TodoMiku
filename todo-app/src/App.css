@@ -17,6 +17,30 @@
   max-width: 25%;
 }
 
+/* Folder sections */
+.folder-section {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 2px solid #3b82f6;
+  border-radius: 8px;
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+.folder-toggle {
+  margin-left: 1rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.folder-toggle:hover {
+  background: #2563eb;
+}
+
 /* Wallpaper previews */
 .wallpaper-options {
   display: flex;
@@ -39,6 +63,7 @@
   border-radius: 6px;
 }
 
+/* Wallpaper buttons */
 .right-box button {
   background: #3b82f6;
   color: white;
@@ -51,6 +76,17 @@
 .right-box button:hover {
   background: #2563eb;
 }
+
+/* Highlight active wallpaper button */
+.active-wallpaper {
+  border: 2px solid #3b82f6;
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #1e3a8a;
+  font-weight: bold;
+  box-shadow: 0 0 8px #3b82f6;
+}
+
+/* Item actions (edit/delete buttons) */
 .item-actions {
   margin-top: 0.5rem;
   display: flex;
@@ -70,21 +106,8 @@
 .item-actions button:hover {
   background: #2563eb;
 }
-.app-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 1.5rem;
-  color: #3b82f6;
-}
 
-.app-icon {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  border-radius: 6px;
-  border: 2px solid #3b82f6;
-}
+/* Header styling */
 .app-header {
   display: flex;
   align-items: center;
@@ -105,25 +128,19 @@
   font-weight: bold;
   color: #1e3a8a; /* dark blue */
   -webkit-text-stroke: 1px black; /* black border around letters */
-}
-.app-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.5rem 1rem;
+  transition: text-shadow 0.3s ease;
 }
 
-.app-icon {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  border-radius: 8px;
-  border: 2px solid #3b82f6;
+.app-title:hover {
+  text-shadow: 0 0 12px #3b82f6;
 }
 
-.app-title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #1e3a8a; /* dark blue */
-  -webkit-text-stroke: 1px black; /* black border around letters */
+/* Footer styling */
+.app-footer {
+  text-align: center;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  color: #1e3a8a;
+  background-color: rgba(59, 130, 246, 0.05);
+  border-top: 2px solid #3b82f6;
 }

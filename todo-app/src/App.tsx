@@ -64,6 +64,8 @@ function App() {
 
   useEffect(() => {
     document.body.style.backgroundImage = `url(${wallpaper})`;
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundRepeat = "no-repeat";
     localStorage.setItem("wallpaper", wallpaper);
   }, [wallpaper]);
 
@@ -103,7 +105,23 @@ function App() {
                 {showTasks ? "📂 Close" : "📂 Open"}
               </button>
             </h3>
-            {showTasks && <TaskList tasks={tasks} editTask={() => {}} deleteTask={() => {}} />}
+            {showTasks && (
+              <TaskList
+                tasks={tasks}
+                editTask={(index, field) => {
+                  const updated = [...tasks];
+                  const current = updated[index];
+                  const newValue = prompt(`Edit ${field}:`, current[field]);
+                  if (newValue) {
+                    current[field] = newValue;
+                    setTasks(updated);
+                  }
+                }}
+                deleteTask={(index) => {
+                  setTasks(tasks.filter((_, i) => i !== index));
+                }}
+              />
+            )}
           </div>
 
           {/* ✅ Borrowed Items */}
@@ -115,12 +133,26 @@ function App() {
               </button>
             </h3>
             {showBorrowed && (
-              <BorrowList borrowed={borrowed} editBorrow={() => {}} deleteBorrowed={() => {}} />
+              <BorrowList
+                borrowed={borrowed}
+                editBorrow={(index, field) => {
+                  const updated = [...borrowed];
+                  const current = updated[index];
+                  const newValue = prompt(`Edit ${field}:`, current[field]);
+                  if (newValue) {
+                    current[field] = newValue;
+                    setBorrowed(updated);
+                  }
+                }}
+                deleteBorrowed={(index) => {
+                  setBorrowed(borrowed.filter((_, i) => i !== index));
+                }}
+              />
             )}
           </div>
 
           {/* ✅ Event List */}
-          <div className="folder-section eventlist-container">
+          <div className="folder-section">
             <h3>
               🎉 Event List
               <button className="folder-toggle" onClick={() => setShowEvents(!showEvents)}>
