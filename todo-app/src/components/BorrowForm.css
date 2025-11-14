@@ -1,0 +1,30 @@
+.borrowform-container {
+  background: #000 !important; /* black outer layer */
+  border: 4px double #3b82f6;
+  border-radius: 12px;
+  padding: 1rem;
+  color: #3b82f6 !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.borrowform-container input,
+.borrowform-container button {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+}
+
+.borrowform-container input {
+  background: #333; /* grey input background */
+  color: #3b82f6;   /* blue text */
+}
+
+.borrowform-container button {
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+}

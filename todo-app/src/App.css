@@ -1,0 +1,129 @@
+/* Three-column layout */
+.app-container.three-column {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem;
+  flex-wrap: nowrap;
+}
+
+.middle-box {
+  flex: 1 1 40%;
+  max-width: 40%;
+}
+
+.right-box {
+  flex: 1 1 25%;
+  max-width: 25%;
+}
+
+/* Wallpaper previews */
+.wallpaper-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.wallpaper-choice {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.wallpaper-thumb {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border: 2px solid #3b82f6;
+  border-radius: 6px;
+}
+
+.right-box button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+}
+
+.right-box button:hover {
+  background: #2563eb;
+}
+.item-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.item-actions button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.item-actions button:hover {
+  background: #2563eb;
+}
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  color: #3b82f6;
+}
+
+.app-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 6px;
+  border: 2px solid #3b82f6;
+}
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.app-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 2px solid #3b82f6;
+}
+
+.app-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1e3a8a; /* dark blue */
+  -webkit-text-stroke: 1px black; /* black border around letters */
+}
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.app-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 2px solid #3b82f6;
+}
+
+.app-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1e3a8a; /* dark blue */
+  -webkit-text-stroke: 1px black; /* black border around letters */
+}
